@@ -1,0 +1,100 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Blueprint Page Styles */
+.blueprint-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 2%;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.blueprint-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.blueprint-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.blueprint-subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+.section-title {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-bottom: 1rem;
+}
+
+.blueprint-description {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.steps-list {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.step-item {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    position: relative; 
+}
+
+.step-item::before {
+    content: "•";
+    color: #3498db;
+    font-size: 1.5rem;
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+}
+
+.code-block {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.blueprint-conclusion {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
