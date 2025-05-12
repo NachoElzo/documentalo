@@ -6,35 +6,43 @@ import Link from "next/link";
 // Topics for each section
 const sections = [
     {
+        title: "Tools & Environments",
+        topics: [
+            { name: "NVM", link: "/nvm" },
+            { name: "in progress", link: "/brew" },
+            { name: "in progress", link: "/path" },
+        ],
+    },
+    {
         title: "Automation",
         topics: [
-            { name: "Playwright", slug: "playwright" },
-            { name: "in progress", slug: "in-progress-1" },
-            { name: "in progress", slug: "in-progress-2" },
+            { name: "Playwright", link: "/playwright" },
+            { name: "In Progress", link: "#" },
+            { name: "In Progress", link: "#" },
         ],
     },
     {
         title: "Code",
         topics: [
-            { name: "JavaScript", slug: "javascript" },
-            { name: "Python", slug: "python" },
-            { name: "in progress", slug: "in-progress-3" },
+            { name: "In Progress", link: "#" },
+            { name: "In Progress", link: "#" },
+            { name: "In Progress", link: "#" },
         ],
     },
     {
         title: "Tips",
         topics: [
-            { name: "in progress", slug: "in-progress-4" },
-            { name: "in progress", slug: "in-progress-5" },
-            { name: "in progress", slug: "in-progress-6" },
+            { name: "In Progress", link: "#" },
+            { name: "In Progress", link: "#" },
+            { name: "In Progress", link: "#" },
         ],
     },
     {
         title: "CI/CD",
         topics: [
-            { name: "in progress", slug: "in-progress-7" },
-            { name: "in progress", slug: "in-progress-8" },
-            { name: "in progress", slug: "in-progress-9" },
+            { name: "In Progress", link: "#" },
+            { name: "In Progress", link: "#" },
+            { name: "In Progress", link: "#" },
         ],
     },
 ];
@@ -53,14 +61,8 @@ const LandingPage: React.FC = () => {
                     <h2 className="section-title">{section.title}</h2>
                     <ul className="topics-grid">
                         {section.topics.map((topic, index) => (
-                            <li key={`${topic.slug}-${index}`} className="topic-card">
-                                <Link
-                                    href={{
-                                        pathname: `/playwright`,
-                                        query: { title: topic.name, slug: topic.slug },
-                                    }}
-                                    className="topic-link"
-                                >
+                            <li key={index} className="topic-card">
+                                <Link href={topic.link} className="topic-link">
                                     <div className="topic-content">
                                         <h3 className="topic-name">{topic.name}</h3>
                                         <p className="topic-description">

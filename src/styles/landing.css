@@ -51,16 +51,26 @@
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* Ocultar subrayado de los enlaces */
 .topic-link {
     display: block;
     padding: 1.5rem;
     text-align: center;
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Usa el color del texto del contenedor */
 }
 
 .topic-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Ocultar los puntos de las listas */
+ul {
+    list-style: none; /* Elimina los puntos de las listas */
+    padding: 0; /* Elimina el padding predeterminado */
+    margin: 0; /* Elimina el margen predeterminado */
 }
 
 .topic-name {

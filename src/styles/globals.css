@@ -7,18 +7,8 @@ body, html {
     line-height: 1.6;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-/* Blueprint Page Styles */
-.blueprint-container {
+/* Container Styles */
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,69 +22,74 @@ ul {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.blueprint-header {
+/* Header Styles */
+.header {
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.blueprint-title {
+.title {
+    color: #45a049;
     font-size: 2.5rem;
-    color: #2c3e50;
     margin-bottom: 0.5rem;
     margin-top: 0;
 }
-
-.blueprint-subtitle {
-    font-size: 1.2rem;
-    color: #7f8c8d;
-}
-
-.section-title {
-    margin-top: 0;
-    font-size: 1.8rem;
-    color: #34495e;
-    margin-bottom: 1rem;
-}
-
-.blueprint-description {
-    font-size: 1rem;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-}
-
-.steps-list {
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-}
-
-.step-item {
-    font-size: 1rem;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-    position: relative; 
-}
-
-.step-item::before {
-    content: "•";
-    color: #3498db;
+/* Section titles */
+.container .section-title {
     font-size: 1.5rem;
-    position: absolute;
-    left: -1.5rem;
-    top: 0;
+    color: #747474;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+.description {
+    font-size: 1rem;
+    color: #b3b6b6;
 }
 
+.list {
+    list-style: disc; /* Asegura que los puntos se muestren */
+    padding-left: 1.5rem; /* Agrega espacio a la izquierda para los puntos */
+    margin-bottom: 1rem; /* Espaciado entre listas */
+}
+
+.list li {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: list-item; /* Asegura que se comporte como un elemento de lista */
+    list-style-position: inside; /* Los puntos estarán dentro del área de contenido */
+}
+
+/* Code Block Styles */
 .code-block {
     background-color: #f4f4f4;
-    padding: 1rem;
+    padding: 0.6rem;
     border-radius: 4px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.9rem;
     overflow-x: auto;
-    margin-bottom: 2rem;
     color: #2c3e50;
+    margin-top: 0.5rem;
 }
 
-.blueprint-conclusion {
-    font-size: 1rem;
-    color: #7f8c8d;
+/* Button Styles */
+.button {
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 2px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
