@@ -1,6 +1,7 @@
 "use client"; // Mark this file as a client component
 
 import React, { Suspense } from "react";
+import Link from "next/link";
 
 const Content: React.FC = () => {
     return (
@@ -8,90 +9,124 @@ const Content: React.FC = () => {
             <header className="header">
                 <h1 className="title">Playwright</h1>
                 <p className="description">
-                    Playwright<br />
-                    PLAYWRIGHT
+                    Playwright is an open-source automation framework for end-to-end testing of web applications. 
+                    It supports multiple browsers (Chromium, Firefox, and WebKit) and allows testing across different platforms. 
+                    With Playwright, you can simulate user interactions, capture screenshots, and ensure app functionality.
                 </p>
             </header>
             <section className="content">
                 <h2 className="section-title">Installation</h2>
                 <p>
-                    NVM Documentation
-                    <a href="https://github.com/nvm-sh/nvm" target="_blank" rel="noopener noreferrer">
+                    Play Wright Documentation
+                    <Link href="https://playwright.dev/">
                         <button className="button">GO</button>
-                    </a>
+                    </Link>
                 </p>
-                <p>To install NVM, run the following command in your terminal:</p>
-                <div className="code-block">
-                    <code>
-                        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-                    </code>
-                </div>
-                <p>
-                    If you encounter the error <strong>zsh: command not found: nvm</strong>, type the following in your terminal:
-                </p>
-                <div className="code-block">
-                    <code>source ~/.nvm/nvm.sh</code>
-                </div>
-                <p>After that, open and close your terminal to ensure the changes take effect.</p>
-
-                <h2 className="section-title">NVM Commands Examples</h2>
+                <h3>Pre-requirements</h3>
                 <ul className="list">
                     <li>
-                        Check versions available for installation:
+                        Install latest node or nvm:
+                        <Link href="/nvm">
+                            <button className="button">GO</button>
+                        </Link>
+                    </li>
+                    <li>
+                        Install Visual Studio Code:
+                        <Link href="https://code.visualstudio.com/">
+                            <button className="button">GO</button>
+                        </Link>
+                    </li>
+                    <li>
+                        Install Visual Studio Code extension from Microsoft.
+                    </li>
+                    <li>Install visual studio code extension</li>
+                </ul>
+
+                
+                <h2 className="section-title">Execution scripts</h2>
+                <ul className="list">
+                    <li>
+                         Run all tests in UI mode:
                         <div className="code-block">
-                            <code>nvm ls-remote</code>
+                            <code>npx playwright test --ui</code>
+                        </div>
+                    </li>
+                      <li>
+                        Run all tests in debug mode:
+                        <div className="code-block">
+                            <code>npx playwright test --debug</code>
                         </div>
                     </li>
                     <li>
-                        Install the latest version of Node.js:
+                        Execute all your tests headless:
                         <div className="code-block">
-                            <code>nvm install node</code>
+                            <code>npx playwright test</code>
                         </div>
                     </li>
                     <li>
-                        Install a specific Node.js version:
+                        Execute all tests showing headed mode:
                         <div className="code-block">
-                            <code>{`nvm install "`}{'"'}{`version"`}{'"'}</code>
+                            <code>npx playwright test --headed</code>
                         </div>
                     </li>
                     <li>
-                        Use a specific Node.js version:
+                        Run all tests selecting browser
                         <div className="code-block">
-                            <code>{`nvm use "`}{'"'}{`version"`}{'"'}</code>
+                            <code>npx playwright test --project=chromium</code>
+                            <br />
+                             <code>npx playwright test --project=firefox</code>
                         </div>
                     </li>
                     <li>
-                        List installed Node.js versions:
+                        Auto-generate tests with Codegen:
                         <div className="code-block">
-                            <code>nvm list</code>
+                            <code>npx playwright codegen</code>
                         </div>
                     </li>
                     <li>
-                        Set a default Node.js version:
+                        execute showing the report:
                         <div className="code-block">
-                            <code>{`nvm alias default "`}{'"'}{`version"`}{'"'}</code>
+                            <code>npx playwright show-report</code>
                         </div>
                     </li>
                     <li>
-                        Check the active Node.js version:
+                        Run a specific test headless:
                         <div className="code-block">
-                            <code>node -v</code>
+                            <code>npx playwright test &quot;testName.spec.ts&quot; --project=chromium</code>
                         </div>
                     </li>
                     <li>
-                        Uninstall a Node.js version:
+                        Run with a tag:
                         <div className="code-block">
-                            <code>{`nvm uninstall "`}{'"'}{`version"`}{'"'}</code>
+                            <code>npx playwright test --headed --grep @smoke --project=chromium</code>
+                        </div>
+                    </li>
+                    <li>
+                        Run every tag that does not contain @smoke:
+                        <div className="code-block">
+                            <code>npx playwright test tests-examples/ --grep-invert @smoke --project=firefox</code>
+                        </div>
+                    </li>
+                    <li>
+                        Run and open the trace option in the report (to see the trace option, open the Playwright report first):
+                        <div className="code-block">
+                            <code>npx playwright test --trace on</code>
                         </div>
                     </li>
                 </ul>
-
-                <h2 className="section-title">Delete Node.js Versions</h2>
-                <p>To delete Node.js versions from your Mac system manually:</p>
+                <h2 className="section-title">Handy tricks</h2>
                 <ul className="list">
-                    <li>Navigate to your Mac user folder.</li>
-                    <li>Press <strong>Cmd + Shift + .</strong> to toggle hidden files visibility.</li>
-                    <li>Locate the <code>.nvm</code> folder and delete it.</li>
+                    <li>
+                        Reduce test flakiness caused by UI interactions before API responses are ready.
+                        <div className="code-block">
+                            <code>
+                                {`await Promise.all([
+                                    page.waitForResponse(resp => resp.url().includes('api/endpoint') && resp.status() === 200),
+                                    pom.goToHome()
+                                ]);`}
+                            </code>
+                        </div>
+                    </li>
                 </ul>
             </section>
         </main>
